@@ -1,0 +1,71 @@
+{
+  "data": {
+    "codebookEventStages": [
+      {
+        "id": 1,
+        "typeId": 1,
+        "name": "Scheduled"
+      },
+      {
+        "id": 2,
+        "typeId": 2,
+        "name": "Live"
+      },
+      {
+        "id": 3,
+        "typeId": 3,
+        "name": "Finished"
+      },
+      {
+        "id": 4,
+        "typeId": 3,
+        "name": "Postponed"
+      },
+      {
+        "id": 5,
+        "typeId": 3,
+        "name": "Canceled"
+      },
+      {
+        "id": 6,
+        "typeId": 2,
+        "name": "Extra Time"
+      },
+      {
+        "id": 7,
+        "typeId": 2,
+        "name": "Penalties"
+      },
+      {
+        "id": 8,
+        "typeId": 3,
+        "name": "Retired"
+      },
+      {
+        "id": 9,
+        "typeId": 3,
+        "name": "Walkover"
+      },
+      {
+        "id": 10,
+        "typeId": 3,
+        "name": "After Extra Time"
+      },
+      {
+        "id": 11,
+        "typeId": 3,
+        "name": "After Penalties"
+      },
+      {
+        "id": 12,
+        "typeId": 2,
+        "name": "1st Half"
+      },
+      {
+        "id": 13,
+        "typeId": 2,
+        "name": "2nd Half"
+      }
+    ]
+  }
+}

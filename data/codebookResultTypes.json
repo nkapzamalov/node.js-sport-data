@@ -1,0 +1,38 @@
+{
+  "data": {
+    "codebookResultTypes": [
+      {
+        "id": 1,
+        "name": "Current Result"
+      },
+      {
+        "id": 2,
+        "name": "Full Time Result"
+      },
+      {
+        "id": 3,
+        "name": "1st Half Time Result"
+      },
+      {
+        "id": 4,
+        "name": "After Extra Time"
+      },
+      {
+        "id": 5,
+        "name": "After Penalties"
+      },
+      {
+        "id": 6,
+        "name": "2nd Half Time Result"
+      },
+      {
+        "id": 7,
+        "name": "Extra Time"
+      },
+      {
+        "id": 8,
+        "name": "Penalties"
+      }
+    ]
+  }
+}
