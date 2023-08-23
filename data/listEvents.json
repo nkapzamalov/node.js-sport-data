@@ -38,6 +38,24 @@
         "timeStart": 1692173700,
         "timeEnd": null,
         "away": {
+          "scoreAll": [
+            {
+              "resultTypeId": 1,
+              "value": 2
+            },
+            {
+              "resultTypeId": 2,
+              "value": 2
+            },
+            {
+              "resultTypeId": 3,
+              "value": 0
+            },
+            {
+              "resultTypeId": 6,
+              "value": 2
+            }
+          ],
           "participant": [
             {
               "name": "South Melbourne"
