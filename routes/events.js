@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import redis from "redis";
 import { Router } from "express";
-import { getFromCashe, sentInCashe } from "../utils/cashe.js";
+import { getFromCache, sentInCache } from "../utils/cache.js";
 import { eventsParser } from "../parsers/events.js";
 
 const client = redis.createClient();
@@ -20,19 +20,19 @@ const getEvents = async () => {
   }
 };
 
-const getCasheEvents = async (req, res, next) => {
-  const cashedEvents = await getFromCashe("events");
+const getCacheEvents = async (req, res, next) => {
+  const cashedEvents = await getFromCache("events");
   cashedEvents ? res.send(cashedEvents) : next();
 };
 
-const getCasheEvent = async (req, res, next) => {
+const getCacheEvent = async (req, res, next) => {
   const cashedEvent = await client.get("event" + req.params.id);
   cashedEvent ? res.send(cashedEvent) : next();
 };
 
-router.get("/", getCasheEvents, async (req, res) => {
+router.get("/", getCacheEvents, async (req, res) => {
   const events = await getEvents();
-  await sentInCashe("events", events);
+  await sentInCache("events", events);
   res.send(events);
 });
 

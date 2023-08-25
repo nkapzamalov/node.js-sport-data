@@ -12,7 +12,7 @@ export const eventsParser = (data) => {
     8: "penalties",
   };
 
-  const stageTypemap = {
+  const stageTypeMap = {
     1: "Scheduled",
     2: "Live",
     3: "Finished",
@@ -40,7 +40,7 @@ export const eventsParser = (data) => {
   const mapedEvents = events?.map((event) => {
     return {
       id: event.id,
-      sentance: event.sentance,
+      sentence: event.sentence,
       home: {
         participantName: event.home?.participant[0]?.name,
         scoreHome: scoreMapping(event.home.scoreAll),
