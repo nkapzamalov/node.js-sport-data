@@ -1,0 +1,15 @@
+const stageTypeMap = {
+  1: "Scheduled",
+  2: "Live",
+  3: "Finished",
+  4: "Postponed",
+  5: "Canceled",
+  6: "Extra Time",
+  7: "Penalties",
+  8: "Retired",
+  9: "Walkover",
+  10: "After Extra Time",
+  11: "After Penalties",
+  12: "1st Half",
+  13: "2nd Half",
+};

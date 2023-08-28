@@ -21,13 +21,15 @@ const getEvents = async () => {
 };
 
 const getCacheEvents = async (req, res, next) => {
-  const cashedEvents = await getFromCache("events");
-  cashedEvents ? res.send(cashedEvents) : next();
-};
-
-const getCacheEvent = async (req, res, next) => {
-  const cashedEvent = await client.get("event" + req.params.id);
-  cashedEvent ? res.send(cashedEvent) : next();
+  const cachedEvents = await getFromCache("events");
+  if (req.params.id) {
+    const cachedEvent = cachedEvents?.find(
+      (event) => event.id === Number(req.params.id)
+    );
+    cachedEvent ? res.send(cachedEvent) : next();
+  } else {
+    cachedEvents ? res.send(cachedEvents) : next();
+  }
 };
 
 router.get("/", getCacheEvents, async (req, res) => {
@@ -36,20 +38,20 @@ router.get("/", getCacheEvents, async (req, res) => {
   res.send(events);
 });
 
-// router.get("/:id", getCasheEvent, async (req, res) => {
-//   const eventId = req.params.id;
-//   const events = await getEvents();
-//   const parsedEvents = parseEvents(events);
+router.get("/:id", getCacheEvents, async (req, res) => {
+  const eventId = req.params.id;
+  const events = await getEvents();
+  const event = events.find((event) => event.id === Number(eventId));
+  await sentInCache("events", events);
 
-//   const event = parsedEvents.find((event) => event.id === Number(eventId));
+  if (!event) {
+    res.status(404).json({ error: "Event not found" });
+    return;
+  }
+  res.send(event);
+});
 
-//   if (!event) {
-//     res.status(404).json({ error: "Event not found" });
-//     return;
-//   }
-//   await client.setEx("event:" + eventId, 3600, JSON.stringify(event));
-//   res.send(event);
-// });
+export default router;
 
 // router.get("/stage/:stage", async (req, res) => {
 //   const targetStage = req.params.stage;
@@ -66,5 +68,3 @@ router.get("/", getCacheEvents, async (req, res) => {
 
 //   res.send(eventsByStage);
 // });
-
-export default router;
